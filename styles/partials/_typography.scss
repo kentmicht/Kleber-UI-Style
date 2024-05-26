@@ -1,0 +1,50 @@
+@use "variable" as *;
+
+@mixin textHeading() {
+  color: $dt-heading-text-color;
+  font-weight: $dt-font-weight-bold;
+}
+
+.dt-text-xs {
+  font-size: $dt-text-xs;
+  line-height: 16px;
+}
+
+.dt-text-sm {
+  font-size: $dt-text-xs;
+  line-height: 20px;
+}
+
+.dt-text {
+  font-size: $dt-text-base;
+  line-height: 24px;
+}
+
+.dt-text-lg {
+  font-size: $dt-text-lg;
+  line-height: 28px;
+}
+
+.dt-text-heading-4 {
+  @include textHeading();
+  font-size: $dt-text-heading-4;
+  line-height: 32px;
+}
+
+.dt-text-heading-3 {
+  @include textHeading();
+  font-size: $dt-text-heading-3;
+  line-height: 36px;
+}
+
+.dt-text-heading-2 {
+  @include textHeading();
+  font-size: $dt-text-heading-2;
+  line-height: 40px;
+}
+
+.dt-text-heading-1 {
+  @include textHeading();
+  font-size: $dt-text-heading-1;
+  line-height: 48px;
+}

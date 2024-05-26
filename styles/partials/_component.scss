@@ -1,0 +1,352 @@
+@use "variable" as *;
+
+/* DashboardCard */
+.dashboard-card {
+  @include flex($gap: $dt-spacing-8);
+
+  padding: $dt-spacing-8;
+  width: fit-content;
+  cursor: pointer;
+
+  .dashboard-card__content {
+    @include flexCol($gap: $dt-spacing-2);
+
+    word-wrap: break-word;
+    width: 300px;
+  }
+}
+
+/* KleberMenu */
+.kleber-menu {
+  display: flex;
+  gap: $dt-spacing-6;
+
+  &.dt-container {
+    padding: $dt-spacing-2-5 $dt-spacing-2;
+  }
+}
+
+/* ProgressTracker */
+.progress-tracker {
+  @include flexCenter($content: space-between);
+  font-weight: 600;
+  position: relative;
+
+  &.dt-container {
+    padding: $dt-spacing-4;
+  }
+
+  .progress-tracker-item__container {
+    @include flexCenter($gap: $dt-spacing-2);
+
+    padding: 4px 16px 4px 4px;
+
+    border-radius: $dt-rounded-full;
+    background-color: $dt-blue-bg-50;
+    border: 1px solid $dt-gray-stroke;
+    z-index: 999;
+
+    span {
+      color: $dt-blue-text;
+    }
+  }
+
+  .progress-tracker__item {
+    @include flexCenter();
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: $dt-rounded-full;
+    background-color: $dt-white-bg;
+    border: 1px solid $dt-gray-stroke;
+    z-index: 999;
+
+    font-weight: $dt-font-weight-bold;
+  }
+
+  .progress-tracker__item--checked {
+    background-color: $dt-badge-success-bg;
+  }
+
+  .progress-tracker__item--active {
+    background-color: $dt-primary-button;
+    color: $dt-white-text;
+  }
+
+  .progress-tracker__center-line {
+    border: 1px solid $dt-gray-stroke;
+    width: 95%;
+    position: absolute;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+/*ServiceCard */
+.service-card {
+  @include flexCol($gap: $dt-spacing-5);
+
+  padding: $dt-spacing-6;
+  width: 350px;
+
+  .service-card__top {
+    @include flexCenter($content: space-between);
+  }
+
+  .service-card__content-wrapper {
+    @include flexCol($gap: $dt-spacing-4);
+
+    .service-card__main-content {
+      @include flexCol($gap: $dt-spacing-2);
+    }
+
+    .service-card__checklist {
+      @include flexCol($gap: $dt-spacing-1);
+
+      .service-card__checklist-item {
+        @include flexCenter($content: flex-start, $gap: $dt-spacing-2);
+      }
+    }
+
+    .service-card__price {
+      color: $dt-green-text;
+    }
+
+    .service-card__button-group {
+      width: 100%;
+      @include flexCol($gap: $dt-spacing-2);
+    }
+  }
+}
+
+/* Badge */
+.badge {
+  @include flexCenter($gap: $dt-spacing-1-5);
+  @include fitContent();
+
+  padding: $dt-spacing-1 $dt-spacing-3;
+  border-radius: $dt-rounded-full;
+  font-size: $dt-text-sm;
+
+  .badge__icon {
+    @include flexCenter();
+  }
+
+  &.badge--success {
+    color: $dt-badge-success-text;
+    background-color: $dt-badge-success-bg;
+
+    &.badge--outline {
+      color: $dt-badge-success-text;
+    }
+  }
+
+  &.badge--info {
+    color: $dt-badge-info-text;
+    background-color: $dt-badge-info-bg;
+
+    &.badge--outline {
+      color: $dt-badge-info-text;
+    }
+  }
+
+  &.badge--warning {
+    color: $dt-badge-warning-text;
+    background-color: $dt-badge-warning-bg;
+
+    &.badge--outline {
+      color: $dt-badge-warning-text;
+    }
+  }
+
+  &.badge--error {
+    color: $dt-badge-error-text;
+    background-color: $dt-badge-error-bg;
+
+    &.badge--outline {
+      color: $dt-badge-error-text;
+    }
+  }
+
+  &.badge--outline {
+    background-color: $dt-white-bg;
+    border: 1px solid;
+  }
+
+  &.badge--md {
+    padding: $dt-spacing-2 $dt-spacing-3-5;
+  }
+
+  &.badge--lg {
+    padding: $dt-spacing-3 $dt-spacing-5;
+    font-size: $dt-text-base;
+  }
+
+  &.badge--notif {
+    @include flexCenter();
+    height: 16px;
+    width: 16px;
+    padding: 0;
+    font-size: $dt-text-xs;
+    font-weight: 600;
+  }
+}
+
+/* Button */
+.btn {
+  @include fitContent();
+  @include flexCenter($gap: $dt-spacing-1);
+
+  cursor: pointer;
+  padding: $dt-spacing-3 $dt-spacing-5;
+  border-radius: $dt-rounded-lg;
+
+  font-size: $dt-text-sm;
+  color: $dt-white-text;
+  background-color: $dt-primary-button;
+
+  &.btn--primary {
+    background-color: $dt-primary-button;
+  }
+
+  &.btn--success {
+    background-color: $dt-success-button;
+
+    &.btn--outline {
+      border: 1px solid $dt-success-button;
+      background-color: $dt-white-bg;
+      color: $dt-success-button;
+    }
+  }
+
+  &.btn--error {
+    background-color: $dt-error-button;
+
+    &.btn--outline {
+      border: 1px solid $dt-error-button;
+      background-color: $dt-white-bg;
+      color: $dt-error-button;
+    }
+  }
+
+  /* Outline & Ghost button */
+  &.btn--ghost {
+    background-color: $dt-white-bg;
+    color: $dt-primary-button;
+  }
+
+  &.btn--outline {
+    border: 1px solid $dt-primary-button;
+    background-color: $dt-white-bg;
+    color: $dt-primary-button;
+  }
+}
+
+/* Button size */
+.btn.btn--md {
+  padding: $dt-spacing-2 $dt-spacing-5;
+}
+
+.btn.btn--sm {
+  padding: $dt-spacing-1 $dt-spacing-3;
+}
+
+/* Button disabled state */
+.btn:disabled {
+  opacity: 50%;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  height: 40px;
+  font-size: $dt-text-base;
+  padding: $dt-spacing-2 $dt-spacing-2;
+  background-color: $dt-white-bg;
+  border: 2px solid $dt-gray-stroke;
+  border-radius: $dt-rounded-lg;
+  transition: 180ms box-shadow ease-in-out;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &:focus {
+    border-color: $dt-blue-stroke;
+    box-shadow: 0 0 0 3px $dt-blue-shadow-10;
+    outline: 3px solid transparent;
+  }
+}
+
+/* Dropdown */
+select {
+  @extend .input;
+}
+
+/* MenuItem */
+.menu-item {
+  padding: $dt-spacing-2 $dt-spacing-2-5;
+  border-radius: $dt-rounded-lg;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $dt-blue-bg-50;
+  }
+
+  .menu-item__content {
+    @include flexCenter($gap: $dt-spacing-1);
+  }
+}
+
+/* ProgressBar */
+.progress {
+  width: 300px;
+  height: 25px;
+  background-color: $dt-green-bg-50;
+  border-radius: $dt-rounded-full;
+
+  .progress__bar {
+    @include flexCenter();
+
+    font-size: $dt-text-sm;
+    color: $dt-white-text;
+    background-color: $dt-green-bg;
+    border-radius: $dt-rounded-full;
+    height: 100%;
+  }
+}
+
+/* Table */
+table {
+  width: 100%;
+  background-color: $dt-white-bg;
+  border-spacing: 0;
+  border-collapse: separate;
+  overflow: hidden;
+  border: 1px solid $dt-gray-stroke;
+  border-radius: $dt-rounded-2xl;
+
+  thead {
+    height: 60px;
+    background-color: $dt-gray-bg;
+    text-align: left;
+
+    tr > th {
+      color: $dt-heading-text-color;
+      font-weight: 600;
+    }
+  }
+
+  td,
+  th {
+    padding: $dt-spacing-4;
+    border-bottom: 1px solid $dt-gray-stroke;
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+}
