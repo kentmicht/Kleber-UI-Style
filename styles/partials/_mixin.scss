@@ -1,7 +1,8 @@
 @use "variable" as *;
 
-@mixin flex($gap: $dt-spacing-6) {
+@mixin flex($content: start, $gap: $dt-spacing-6) {
   display: flex;
+  justify-content: $content;
   gap: $gap;
 }
 
