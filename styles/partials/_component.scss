@@ -1,24 +1,25 @@
 @use "variable" as *;
 
 /* DashboardCard */
-.dashboard-card {
-  @include flex($gap: $dt-spacing-8);
+.dt-dashboard-card {
+  @include flex($content: space-between, $gap: $dt-spacing-8);
 
   padding: $dt-spacing-8;
-  width: fit-content;
+  max-width: 400px;
   cursor: pointer;
 
-  .dashboard-card__content {
+  .dt-dashboard-card__content {
     @include flexCol($gap: $dt-spacing-2);
 
     word-wrap: break-word;
-    width: 300px;
+    width: 60%;
   }
 }
 
 /* KleberMenu */
-.kleber-menu {
+.dt-kleber-menu {
   display: flex;
+  flex-wrap: wrap;
   gap: $dt-spacing-6;
 
   &.dt-container {
@@ -27,16 +28,25 @@
 }
 
 /* ProgressTracker */
-.progress-tracker {
+.dt-progress-tracker {
   @include flexCenter($content: space-between);
+
   font-weight: 600;
   position: relative;
+
+  @media only screen and (max-width: 640px) {
+    flex-wrap: wrap;
+
+    .dt-progress-tracker__center-line {
+      display: none;
+    }
+  }
 
   &.dt-container {
     padding: $dt-spacing-4;
   }
 
-  .progress-tracker-item__container {
+  .dt-progress-tracker-item__container {
     @include flexCenter($gap: $dt-spacing-2);
 
     padding: 4px 16px 4px 4px;
@@ -51,7 +61,7 @@
     }
   }
 
-  .progress-tracker__item {
+  .dt-progress-tracker__item {
     @include flexCenter();
 
     width: 40px;
@@ -65,18 +75,18 @@
     font-weight: $dt-font-weight-bold;
   }
 
-  .progress-tracker__item--checked {
+  .dt-progress-tracker__item--checked {
     background-color: $dt-badge-success-bg;
   }
 
-  .progress-tracker__item--active {
+  .dt-progress-tracker__item--active {
     background-color: $dt-primary-button;
     color: $dt-white-text;
   }
 
-  .progress-tracker__center-line {
+  .dt-progress-tracker__center-line {
     border: 1px solid $dt-gray-stroke;
-    width: 95%;
+    width: 96%;
     position: absolute;
     margin: auto;
     left: 50%;
@@ -85,36 +95,36 @@
 }
 
 /*ServiceCard */
-.service-card {
+.dt-service-card {
   @include flexCol($gap: $dt-spacing-5);
 
   padding: $dt-spacing-6;
-  width: 350px;
+  max-width: 350px;
 
-  .service-card__top {
+  .dt-service-card__top {
     @include flexCenter($content: space-between);
   }
 
-  .service-card__content-wrapper {
+  .dt-service-card__content-wrapper {
     @include flexCol($gap: $dt-spacing-4);
 
-    .service-card__main-content {
+    .dt-service-card__main-content {
       @include flexCol($gap: $dt-spacing-2);
     }
 
-    .service-card__checklist {
+    .dt-service-card__checklist {
       @include flexCol($gap: $dt-spacing-1);
 
-      .service-card__checklist-item {
+      .dt-service-card__checklist-item {
         @include flexCenter($content: flex-start, $gap: $dt-spacing-2);
       }
     }
 
-    .service-card__price {
+    .dt-service-card__price {
       color: $dt-green-text;
     }
 
-    .service-card__button-group {
+    .dt-service-card__button-group {
       width: 100%;
       @include flexCol($gap: $dt-spacing-2);
     }
@@ -122,7 +132,7 @@
 }
 
 /* Badge */
-.badge {
+.dt-badge {
   @include flexCenter($gap: $dt-spacing-1-5);
   @include fitContent();
 
@@ -130,72 +140,72 @@
   border-radius: $dt-rounded-full;
   font-size: $dt-text-sm;
 
-  .badge__icon {
+  .dt-badge__icon {
     @include flexCenter();
   }
 
-  &.badge--success {
+  &.dt-badge--success {
     color: $dt-badge-success-text;
     background-color: $dt-badge-success-bg;
 
-    &.badge--outline {
+    &.dt-badge--outline {
       color: $dt-badge-success-text;
     }
   }
 
-  &.badge--info {
+  &.dt-badge--info {
     color: $dt-badge-info-text;
     background-color: $dt-badge-info-bg;
 
-    &.badge--outline {
+    &.dt-badge--outline {
       color: $dt-badge-info-text;
     }
   }
 
-  &.badge--warning {
+  &.dt-badge--warning {
     color: $dt-badge-warning-text;
     background-color: $dt-badge-warning-bg;
 
-    &.badge--outline {
+    &.dt-badge--outline {
       color: $dt-badge-warning-text;
     }
   }
 
-  &.badge--error {
+  &.dt-badge--error {
     color: $dt-badge-error-text;
     background-color: $dt-badge-error-bg;
 
-    &.badge--outline {
+    &.dt-badge--outline {
       color: $dt-badge-error-text;
     }
   }
 
-  &.badge--outline {
+  &.dt-badge--outline {
     background-color: $dt-white-bg;
     border: 1px solid;
   }
 
-  &.badge--md {
+  &.dt-badge--md {
     padding: $dt-spacing-2 $dt-spacing-3-5;
   }
 
-  &.badge--lg {
+  &.dt-badge--lg {
     padding: $dt-spacing-3 $dt-spacing-5;
     font-size: $dt-text-base;
   }
 
-  &.badge--notif {
+  &.dt-badge--notif {
     @include flexCenter();
-    height: 16px;
-    width: 16px;
-    padding: 0;
+    height: 8px;
+    padding-left: $dt-spacing-1-5;
+    padding-right: $dt-spacing-1-5;
     font-size: $dt-text-xs;
     font-weight: 600;
   }
 }
 
 /* Button */
-.btn {
+.dt-btn {
   @include fitContent();
   @include flexCenter($gap: $dt-spacing-1);
 
@@ -207,24 +217,26 @@
   color: $dt-white-text;
   background-color: $dt-primary-button;
 
-  &.btn--primary {
+  white-space: nowrap;
+
+  &.dt-btn--primary {
     background-color: $dt-primary-button;
   }
 
-  &.btn--success {
+  &.dt-btn--success {
     background-color: $dt-success-button;
 
-    &.btn--outline {
+    &.dt-btn--outline {
       border: 1px solid $dt-success-button;
       background-color: $dt-white-bg;
       color: $dt-success-button;
     }
   }
 
-  &.btn--error {
+  &.dt-btn--error {
     background-color: $dt-error-button;
 
-    &.btn--outline {
+    &.dt-btn--outline {
       border: 1px solid $dt-error-button;
       background-color: $dt-white-bg;
       color: $dt-error-button;
@@ -232,12 +244,12 @@
   }
 
   /* Outline & Ghost button */
-  &.btn--ghost {
+  &.dt-btn--ghost {
     background-color: $dt-white-bg;
     color: $dt-primary-button;
   }
 
-  &.btn--outline {
+  &.dt-btn--outline {
     border: 1px solid $dt-primary-button;
     background-color: $dt-white-bg;
     color: $dt-primary-button;
@@ -245,25 +257,25 @@
 }
 
 /* Button size */
-.btn.btn--md {
+.dt-btn--md {
   padding: $dt-spacing-2 $dt-spacing-5;
 }
 
-.btn.btn--sm {
+.dt-btn--sm {
   padding: $dt-spacing-1 $dt-spacing-3;
 }
 
 /* Button disabled state */
-.btn:disabled {
+.dt-btn:disabled {
   opacity: 50%;
 }
 
 /* Input */
-.input {
-  width: 100%;
+.dt-input {
   height: 40px;
+  width: 100%;
   font-size: $dt-text-base;
-  padding: $dt-spacing-2 $dt-spacing-2;
+  padding: 0 $dt-spacing-2 0 $dt-spacing-2;
   background-color: $dt-white-bg;
   border: 2px solid $dt-gray-stroke;
   border-radius: $dt-rounded-lg;
@@ -286,29 +298,33 @@ select {
 }
 
 /* MenuItem */
-.menu-item {
+.dt-menu-item {
   padding: $dt-spacing-2 $dt-spacing-2-5;
   border-radius: $dt-rounded-lg;
-
   cursor: pointer;
 
   &:hover {
     background-color: $dt-blue-bg-50;
+    color: $dt-blue-text;
   }
 
-  .menu-item__content {
-    @include flexCenter($gap: $dt-spacing-1);
+  &:hover > * {
+    color: $dt-blue-text;
+  }
+
+  .dt-menu-item__content {
+    @include flexCenter($content: start, $gap: $dt-spacing-1);
   }
 }
 
 /* ProgressBar */
-.progress {
+.dt-progress {
   width: 300px;
   height: 25px;
   background-color: $dt-green-bg-50;
   border-radius: $dt-rounded-full;
 
-  .progress__bar {
+  .dt-progress__bar {
     @include flexCenter();
 
     font-size: $dt-text-sm;
