@@ -5,6 +5,26 @@
   font-weight: $dt-font-weight-bold;
 }
 
+.dt-text-align-center {
+  text-align: center;
+}
+
+.dt-text-success {
+  color: $dt-green-text !important;
+}
+
+.dt-text-info {
+  color: $dt-blue-text !important;
+}
+
+.dt-text-warning {
+  color: $dt-orange-text !important;
+}
+
+.dt-text-error {
+  color: $dt-red-text !important;
+}
+
 .dt-text-xs {
   font-size: $dt-text-xs;
   line-height: 16px;

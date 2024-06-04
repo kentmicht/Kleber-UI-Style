@@ -6,8 +6,9 @@
   gap: $gap;
 }
 
-@mixin flexCol($gap: $dt-spacing-6) {
+@mixin flexCol($content: center, $gap: $dt-spacing-6) {
   display: flex;
+  justify-content: $content;
   flex-direction: column;
   gap: $gap;
 }
@@ -27,4 +28,14 @@
 @mixin fitContainer() {
   width: 100%;
   height: 100%;
+}
+
+@mixin btnHoverBGColor($color: $dt-primary-button) {
+  background-color: hsl(from $color h s calc(l - 15)) !important;
+  color: $dt-white-button !important;
+}
+
+@mixin btnDisabledBGColor($color: $dt-primary-button) {
+  background-color: hsl(from $color h s calc(l + 20)) !important;
+  color: $dt-white-button !important;
 }
