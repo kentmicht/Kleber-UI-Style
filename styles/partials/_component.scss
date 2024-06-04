@@ -12,7 +12,7 @@
     @include flexCol($gap: $dt-spacing-2);
 
     word-wrap: break-word;
-    width: 60%;
+    width: 80%;
   }
 }
 
@@ -29,10 +29,11 @@
 
 /* ProgressTracker */
 .dt-progress-tracker {
-  @include flexCenter($content: space-between);
+  @include flexCenter($content: space-between, $gap: $dt-spacing-8);
 
-  font-weight: 600;
   position: relative;
+
+  width: fit-content;
 
   @media only screen and (max-width: 640px) {
     flex-wrap: wrap;
@@ -86,7 +87,7 @@
 
   .dt-progress-tracker__center-line {
     border: 1px solid $dt-gray-stroke;
-    width: 96%;
+    width: 92%;
     position: absolute;
     margin: auto;
     left: 50%;
@@ -96,36 +97,40 @@
 
 /*ServiceCard */
 .dt-service-card {
-  @include flexCol($gap: $dt-spacing-5);
+  @include flexCol($content: space-between, $gap: $dt-spacing-4);
 
   padding: $dt-spacing-6;
   max-width: 350px;
 
-  .dt-service-card__top {
-    @include flexCenter($content: space-between);
-  }
-
-  .dt-service-card__content-wrapper {
+  .dt-service-card__top-wrapper {
     @include flexCol($gap: $dt-spacing-4);
 
-    .dt-service-card__main-content {
-      @include flexCol($gap: $dt-spacing-2);
+    .dt-service-card__icon-wrapper {
+      @include flexCenter($content: space-between);
     }
 
-    .dt-service-card__checklist {
-      @include flexCol($gap: $dt-spacing-1);
+    .dt-service-card__content-wrapper {
+      @include flexCol($gap: $dt-spacing-4);
 
-      .dt-service-card__checklist-item {
-        @include flexCenter($content: flex-start, $gap: $dt-spacing-2);
+      .dt-service-card__main-content {
+        @include flexCol($gap: $dt-spacing-2);
+      }
+
+      .dt-service-card__checklist {
+        @include flexCol($gap: $dt-spacing-1);
+
+        .dt-service-card__checklist-item {
+          @include flexCenter($content: flex-start, $gap: $dt-spacing-2);
+        }
       }
     }
+  }
 
-    .dt-service-card__price {
-      color: $dt-green-text;
-    }
+  .dt-service-card__bottom-wrapper {
+    @include flexCol($gap: $dt-spacing-2);
+    width: 100%;
 
     .dt-service-card__button-group {
-      width: 100%;
       @include flexCol($gap: $dt-spacing-2);
     }
   }
@@ -196,9 +201,8 @@
 
   &.dt-badge--notif {
     @include flexCenter();
-    height: 8px;
-    padding-left: $dt-spacing-1-5;
-    padding-right: $dt-spacing-1-5;
+
+    padding: $dt-spacing-1;
     font-size: $dt-text-xs;
     font-weight: 600;
   }
@@ -216,15 +220,37 @@
   font-size: $dt-text-sm;
   color: $dt-white-text;
   background-color: $dt-primary-button;
-
-  white-space: nowrap;
+  transition: 0.3s;
 
   &.dt-btn--primary {
     background-color: $dt-primary-button;
+
+    &:hover {
+      @include btnHoverBGColor($dt-primary-button);
+    }
+
+    &.disabled,
+    &:disabled {
+      @include btnDisabledBGColor($dt-primary-button);
+    }
   }
 
   &.dt-btn--success {
     background-color: $dt-success-button;
+
+    &:hover {
+      @include btnHoverBGColor($dt-success-button);
+    }
+
+    &.disabled,
+    &:disabled {
+      @include btnDisabledBGColor($dt-success-button);
+    }
+
+    &.dt-btn--ghost {
+      background-color: $dt-white-bg;
+      color: $dt-success-button;
+    }
 
     &.dt-btn--outline {
       border: 1px solid $dt-success-button;
@@ -235,6 +261,20 @@
 
   &.dt-btn--error {
     background-color: $dt-error-button;
+
+    &:hover {
+      @include btnHoverBGColor($dt-error-button);
+    }
+
+    &.disabled,
+    &:disabled {
+      @include btnDisabledBGColor($dt-error-button);
+    }
+
+    &.dt-btn--ghost {
+      background-color: $dt-white-bg;
+      color: $dt-error-button;
+    }
 
     &.dt-btn--outline {
       border: 1px solid $dt-error-button;
@@ -265,14 +305,36 @@
   padding: $dt-spacing-1 $dt-spacing-3;
 }
 
-/* Button disabled state */
-.dt-btn:disabled {
-  opacity: 50%;
-}
-
 /* Input */
 .dt-input {
-  height: 40px;
+  height: $dt-input-height;
+  font-size: $dt-text-base;
+  padding: 0 $dt-spacing-2 0 $dt-spacing-2;
+  background-color: $dt-white-bg;
+  border: 2px solid $dt-gray-stroke;
+  border-radius: $dt-rounded-lg;
+  transition: 180ms box-shadow ease-in-out;
+
+  &::placeholder {
+    color: inherit;
+  }
+
+  &:focus {
+    border-color: $dt-blue-stroke;
+    box-shadow: 0 0 0 3px $dt-blue-shadow-10;
+    outline: 3px solid transparent;
+  }
+
+  &:disabled {
+    background-color: $dt-gray-disabled;
+    border-color: $dt-gray-stroke;
+    color: $dt-disabled-text-color;
+  }
+}
+
+/* Dropdown */
+select {
+  height: $dt-input-height;
   width: 100%;
   font-size: $dt-text-base;
   padding: 0 $dt-spacing-2 0 $dt-spacing-2;
@@ -292,9 +354,30 @@
   }
 }
 
-/* Dropdown */
-select {
-  @extend .input;
+/* Input with Icon */
+.dt-input-icon__wrapper {
+  position: relative;
+
+  @include flexCenter($content: space-between);
+
+  border: 2px solid $dt-gray-stroke;
+  padding: 0 $dt-spacing-2 0 $dt-spacing-2;
+  border-radius: $dt-rounded-lg;
+  color: $dt-disabled-text-color;
+  background-color: $dt-gray-disabled;
+  width: 100%;
+
+  input.dt-input-icon {
+    border: none;
+    outline: none;
+    height: $dt-input-height;
+    font-size: $dt-text-base;
+    color: $dt-disabled-text-color;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
 }
 
 /* MenuItem */
@@ -312,6 +395,12 @@ select {
     color: $dt-blue-text;
   }
 
+  &:active,
+  &.active {
+    background-color: $dt-blue-bg-50;
+    color: $dt-blue-text;
+  }
+
   .dt-menu-item__content {
     @include flexCenter($content: start, $gap: $dt-spacing-1);
   }
@@ -320,7 +409,7 @@ select {
 /* ProgressBar */
 .dt-progress {
   width: 300px;
-  height: 25px;
+  // height: 25px;
   background-color: $dt-green-bg-50;
   border-radius: $dt-rounded-full;
 
@@ -331,12 +420,14 @@ select {
     color: $dt-white-text;
     background-color: $dt-green-bg;
     border-radius: $dt-rounded-full;
+    padding-top: $dt-spacing-1;
+    padding-bottom: $dt-spacing-1;
     height: 100%;
   }
 }
 
 /* Table */
-table {
+table.dt-table {
   width: 100%;
   background-color: $dt-white-bg;
   border-spacing: 0;

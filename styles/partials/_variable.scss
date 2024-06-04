@@ -1,4 +1,5 @@
 $dt-font-weight-bold: 600;
+$dt-input-height: 40px;
 
 /* Text Sizes */
 $dt-text-xs: 12px;
@@ -35,6 +36,7 @@ $dt-heading-text-color: #334155;
 $dt-light-heading-text-color: #d8e3ff;
 $dt-text-color: #697d99;
 $dt-link-text-color: #01c7c6;
+$dt-disabled-text-color: #9eabbc;
 
 $dt-orange-text: #ea580c;
 $dt-red-text: #ef4444;
@@ -75,13 +77,21 @@ $dt-badge-error-text: #ef4444;
 
 /* Button Colors */
 $dt-primary-button: #2563eb;
-$dt-primary-disabled-button: #81a5f3;
 $dt-success-button: #22c55e;
-$dt-success-disabled-button: #67e595;
 $dt-white-button: #fff;
-$dt-gray-disabled-button: #e7e7e7;
 $dt-error-button: #ef4444;
-$dt-error-disabled-button: #f7a1a1;
+
+/* Hover Colors */
+$dt-primary-hover: #1043b1;
+$dt-success-hover: #17823e;
+$dt-error-hover: #d31212;
+
+/* Disabled Colors */
+$dt-primary-disabled: #81a5f3;
+$dt-success-disabled: #67e595;
+$dt-error-disabled: #f7a1a1;
+$dt-gray-disabled: #edeeef;
 
 /* Shadow Colors */
 $dt-blue-shadow-10: #d4e0fd;
+$dt-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
