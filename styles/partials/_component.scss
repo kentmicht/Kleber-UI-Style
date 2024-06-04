@@ -354,7 +354,7 @@ select {
   }
 }
 
-/* Input with Icon */
+/* Input with Icon : Disabled */
 .dt-input-icon__wrapper {
   position: relative;
 
@@ -365,6 +365,8 @@ select {
   border-radius: $dt-rounded-lg;
   color: $dt-disabled-text-color;
   background-color: $dt-gray-disabled;
+  height: $dt-input-height;
+
   width: 100%;
 
   input.dt-input-icon {
@@ -373,9 +375,61 @@ select {
     height: $dt-input-height;
     font-size: $dt-text-base;
     color: $dt-disabled-text-color;
+    width: 100%;
 
     &::placeholder {
       color: inherit;
+    }
+  }
+}
+
+/* Input with Icon : For Result File Key */
+.dt-input-icon__wrapper {
+  position: relative;
+
+  @include flexCenter($content: space-between);
+
+  border: 2px solid $dt-gray-stroke;
+  padding: 0 $dt-spacing-2 0 $dt-spacing-2;
+  border-radius: $dt-rounded-lg;
+  color: $dt-disabled-text-color;
+  background-color: $dt-white-bg;
+  height: $dt-input-height;
+  width: 100%;
+
+  &:focus-within {
+    border-color: $dt-blue-stroke;
+    box-shadow: 0 0 0 3px $dt-blue-shadow-10;
+    outline: 3px solid transparent;
+  }
+
+  input.dt-input-icon {
+    border: none;
+    outline: none;
+    height: $dt-input-height;
+    font-size: $dt-text-base;
+    width: 100%;
+    background-color: transparent;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+
+  .dt-input-icon__icon-wrapper {
+    @include flexCenter($gap: $dt-spacing-1);
+
+    height: 100%;
+    padding-left: $dt-spacing-1;
+
+    .dt-input-icon__icon {
+      display: flex;
+      padding: $dt-spacing-1-5;
+      border-radius: $dt-rounded-md;
+
+      &:hover {
+        background-color: $dt-blue-bg-50;
+      }
     }
   }
 }
