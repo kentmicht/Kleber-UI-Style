@@ -225,27 +225,27 @@
   &.dt-btn--primary {
     background-color: $dt-primary-button;
 
-    &:hover {
-      @include btnHoverBGColor($dt-primary-button);
-    }
+    // &:hover {
+    //   @include btnHoverBGColor($dt-primary-button);
+    // }
 
-    &.disabled,
-    &:disabled {
-      @include btnDisabledBGColor($dt-primary-button);
-    }
+    // &.disabled,
+    // &:disabled {
+    //   @include btnDisabledBGColor($dt-primary-button);
+    // }
   }
 
   &.dt-btn--success {
     background-color: $dt-success-button;
 
-    &:hover {
-      @include btnHoverBGColor($dt-success-button);
-    }
+    // &:hover {
+    //   @include btnHoverBGColor($dt-success-button);
+    // }
 
-    &.disabled,
-    &:disabled {
-      @include btnDisabledBGColor($dt-success-button);
-    }
+    // &.disabled,
+    // &:disabled {
+    //   @include btnDisabledBGColor($dt-success-button);
+    // }
 
     &.dt-btn--ghost {
       background-color: $dt-white-bg;
@@ -262,14 +262,14 @@
   &.dt-btn--error {
     background-color: $dt-error-button;
 
-    &:hover {
-      @include btnHoverBGColor($dt-error-button);
-    }
+    // &:hover {
+    //   @include btnHoverBGColor($dt-error-button);
+    // }
 
-    &.disabled,
-    &:disabled {
-      @include btnDisabledBGColor($dt-error-button);
-    }
+    // &.disabled,
+    // &:disabled {
+    //   @include btnDisabledBGColor($dt-error-button);
+    // }
 
     &.dt-btn--ghost {
       background-color: $dt-white-bg;
