@@ -30,12 +30,12 @@
   height: 100%;
 }
 
-@mixin btnHoverBGColor($color: $dt-primary-button) {
-  background-color: hsl(from $color h s calc(l - 15)) !important;
-  color: $dt-white-button !important;
-}
+// @mixin btnHoverBGColor($color: $dt-primary-button) {
+//   background-color: hsl(from $color h s calc(l - 15)) !important;
+//   color: $dt-white-button !important;
+// }
 
-@mixin btnDisabledBGColor($color: $dt-primary-button) {
-  background-color: hsl(from $color h s calc(l + 20)) !important;
-  color: $dt-white-button !important;
-}
+// @mixin btnDisabledBGColor($color: $dt-primary-button) {
+//   background-color: hsl(from $color h s calc(l + 20)) !important;
+//   color: $dt-white-button !important;
+// }

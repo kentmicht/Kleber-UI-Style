@@ -225,27 +225,27 @@
   &.dt-btn--primary {
     background-color: $dt-primary-button;
 
-    &:hover {
-      @include btnHoverBGColor($dt-primary-button);
-    }
+    // &:hover {
+    //   @include btnHoverBGColor($dt-primary-button);
+    // }
 
-    &.disabled,
-    &:disabled {
-      @include btnDisabledBGColor($dt-primary-button);
-    }
+    // &.disabled,
+    // &:disabled {
+    //   @include btnDisabledBGColor($dt-primary-button);
+    // }
   }
 
   &.dt-btn--success {
     background-color: $dt-success-button;
 
-    &:hover {
-      @include btnHoverBGColor($dt-success-button);
-    }
+    // &:hover {
+    //   @include btnHoverBGColor($dt-success-button);
+    // }
 
-    &.disabled,
-    &:disabled {
-      @include btnDisabledBGColor($dt-success-button);
-    }
+    // &.disabled,
+    // &:disabled {
+    //   @include btnDisabledBGColor($dt-success-button);
+    // }
 
     &.dt-btn--ghost {
       background-color: $dt-white-bg;
@@ -262,14 +262,14 @@
   &.dt-btn--error {
     background-color: $dt-error-button;
 
-    &:hover {
-      @include btnHoverBGColor($dt-error-button);
-    }
+    // &:hover {
+    //   @include btnHoverBGColor($dt-error-button);
+    // }
 
-    &.disabled,
-    &:disabled {
-      @include btnDisabledBGColor($dt-error-button);
-    }
+    // &.disabled,
+    // &:disabled {
+    //   @include btnDisabledBGColor($dt-error-button);
+    // }
 
     &.dt-btn--ghost {
       background-color: $dt-white-bg;
@@ -296,13 +296,40 @@
   }
 }
 
-/* Button size */
 .dt-btn--md {
   padding: $dt-spacing-2 $dt-spacing-5;
 }
 
 .dt-btn--sm {
   padding: $dt-spacing-1 $dt-spacing-3;
+}
+
+/* Banner */
+.dt-banner {
+  padding: $dt-spacing-6;
+  border-radius: $dt-rounded-lg;
+  background-color: $dt-badge-info-bg;
+  color: $dt-badge-info-text;
+
+  &.dt-banner--success {
+    color: $dt-badge-success-text;
+    background-color: $dt-badge-success-bg;
+  }
+
+  &.dt-banner--info {
+    color: $dt-badge-info-text;
+    background-color: $dt-badge-info-bg;
+  }
+
+  &.dt-banner--warning {
+    color: $dt-badge-warning-text;
+    background-color: $dt-badge-warning-bg;
+  }
+
+  &.dt-banner--error {
+    color: $dt-badge-error-text;
+    background-color: $dt-badge-error-bg;
+  }
 }
 
 /* Input */
